@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anythings-contact book</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="container">
+        <div id="openPage">
+            <center>
+                <h1>Contact Book</h1>
+                <button id="welcome"><a href="#welcome" target="_self">Welcome</a></button>
+            </center>
+        </div>
+        <div id="homePage">
+            <p>
+                <h2>Introduction</h2>
+            </p>
+            <p>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This is a Contact book used for the storage and easy access of individuals’ names, phone numbers and other information for future preference.
+            </p>
+            <center>
+                <button id="menu"><a href="#menu" target="_self ">MENU</a></button>
+            </center>
+        </div>
+        <div id="menuPage">
+            <div>
+                <ul id="menuBar">
+                    <li>
+                        <button id="viewContactLink"><a href="#viewContact">View Contact</a></button>
+                    </li>
+                    <li>
+                        <button id="addContactLink"><a href="#addContact">Add Contact</a></button>
+                    </li>
+                </ul>
+                <div id="addContactPage">
+
+                    <form action="#" id="formSubmit" method="get" name="form" onsubmit="submit()">
+                        <div class="formProperties">
+                            <label for="userName"><b>UserName:</b> </label>
+                            <input type="text" id="userName" name="userName" placeholder="Enter your name" required>
+                        </div>
+                        <div class="formProperties">
+                            <label for="nickName"><b>Nickname:</b> </label>
+                            <input type="text" id="nickName" name="nickName" placeholder="Enter your nickname">
+                        </div>
+                        <div class="formProperties">
+                            <label for="phoneNumber"><b>Phone number: </b></label>
+                            <input type="number" name="phoneNumber" id="phoneNumber" placeholder="Enter your phone number" required>
+                        </div>
+                        <div class="formProperties">
+                            <label for="Email"><b>Email:</b> </label>
+                            <input type="email" multiple name="email" id="email" placeholder="Enter your email">
+                        </div>
+                        <div class="formProperties">
+                            <label for="address"><b>Address:</b> </label>
+                            <textarea name="address" id="address" cols="20" rows="2"></textarea>
+                        </div>
+                        <div class="formProperties">
+                            <label for="website"><b>website:</b></label>
+                            <textarea name="website" id="website" cols="20" rows="1"></textarea>
+                        </div>
+                        <div class="formProperties">
+                            <label for="group"><b>group:</b></label>
+                            <select name="group" id="group">
+                                <option value="family">Family</option>
+                                <option value="co-workers">Co-workers</option>
+                                <option value="friend">Friend</option>
+                                <option value="none" selected>None</option>
+                            </select>
+                        </div>
+                        <div class="formProperties">
+                            <input type="submit" value="Submit">
+                        </div>
+                    </form>
+                </div>
+                <div id="viewContactPage">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="data">id</th>
+                                <th class="data">userName</th>
+                                <th class="data">Nickname</th>
+                                <th class="data">Phone Number</th>
+                                <th class="data">Email</th>
+                                <th class="data">Address</th>
+                                <th class="data">Website</th>
+                                <th class="data">Group</th>
+                            </tr>
+                        </thead>
+                        <tbody id="data1">
+
+                        </tbody>
+                    </table>
+
+
+                </div>
+                <div id="updateContactPage">
+                    <form action="#" id="updateContact" method="get" name="form">
+                        <div class="formProperties">
+                            <input type="hidden" id="updateId" name="updateId" value="">
+                        </div>
+                        <div class="formProperties">
+                            <label for="userName"><b>UserName:</b> </label>
+                            <input type="text" id="upUserName" name="userName" placeholder="Enter your name" required>
+                        </div>
+                        <div class="formProperties">
+                            <label for="nickName"><b>Nickname:</b> </label>
+                            <input type="text" id="upNickName" name="nickName" placeholder="Enter your nickname">
+                        </div>
+                        <div class="formProperties">
+                            <label for="phoneNumber"><b>Phone number: </b></label>
+                            <input type="number" name="phoneNumber" id="upPhoneNumber" placeholder="Enter your phone number" required>
+                        </div>
+                        <div class="formProperties">
+                            <label for="Email"><b>Email:</b> </label>
+                            <input type="email" multiple name="email" id="upEmail" placeholder="Enter your email">
+                        </div>
+                        <div class="formProperties">
+                            <label for="address"><b>Address:</b> </label>
+                            <textarea name="address" id="upAddress" cols="20" rows="2"></textarea>
+                        </div>
+                        <div class="formProperties">
+                            <label for="website"><b>website:</b></label>
+                            <textarea name="website" id="upWebsite" cols="20" rows="1"></textarea>
+                        </div>
+                        <div class="formProperties">
+                            <label for="group"><b>group:</b></label>
+                            <select name="group" id="upGroup">
+                                <option value="family">Family</option>
+                                <option value="co-workers">Co-workers</option>
+                                <option value="friend">Friend</option>
+                                <option value="none" selected>None</option>
+                            </select>
+                        </div>
+                        <div class="formProperties">
+                            <input type="submit" value="Update">
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+        <script src="app.js"></script>
+</body>
+
+</html>
