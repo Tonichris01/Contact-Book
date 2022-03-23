@@ -94,6 +94,7 @@ document.getElementById('welcome').onclick = function welcome() {
         x.style.display = "none";
     }
     y.style.display = "block";
+    return false
 }
 document.getElementById('menu').onclick = function openMenu() {
     if (y.style.display === "none") {
