@@ -7,28 +7,6 @@ var updte = document.getElementById('updateContactPage');
 
 // var dataStorageArray = [];
 // const newId = getNewId();
-
-const defaultData = [{
-        "id": 1,
-        "userName": "cray",
-        "nickName": "fish",
-        "phoneNumber": "12345609878",
-        "email": "",
-        "address": "none",
-        "website": "none",
-        "group": "none"
-    },
-    {
-        "id": 2,
-        "userName": "weak",
-        "nickName": "none",
-        "phoneNumber": "09876543212",
-        "email": "",
-        "address": "none",
-        "website": "none",
-        "group": "none"
-    }
-];
 // getting array objects from local storage
 // var dataStorageArray = JSON.parse(localStorage.getItem("dataStorageArray"));
 // var idValueArray = JSON.parse(localStorage.getItem('idValueArray'));
@@ -43,7 +21,13 @@ function setDataStorage(data) {
 }
 
 function getDataFromLocalStorage() {
-    return JSON.parse(localStorage.getItem("dataStorageArray"));
+    let dataStorageArrayInLocalStorage = JSON.parse(localStorage.getItem("dataStorageArray"));
+
+    if (!dataStorageArrayInLocalStorage) {
+        return [];
+    } else {
+        return JSON.parse(localStorage.getItem("dataStorageArray"));
+    }
 }
 
 function getNewId() {
@@ -56,7 +40,6 @@ function getNewId() {
     if (!idStorage) {
 
         if (dataInStorage) {
-            alert('data exists')
             let idArray = dataInStorage.map(item => Number(item.id));
 
             let maxIdNumber = Math.max(...idArray);
@@ -168,7 +151,6 @@ function submit() {
 
 
     // console.log(idValueArray);
-    console.log('tag');
     let newId = getNewId();
     // idValueArray.forEach(x => {
     //     if (x.currentId >= 0) {
@@ -197,7 +179,6 @@ function submit() {
     let existingData = getDataFromLocalStorage();
     existingData.push(contact);
     setDataStorage(existingData);
-    console.log('bag');
     // dataStorageArray.push(contact);
     // console.log(dataStorageArray);
 
@@ -265,7 +246,6 @@ function updateDisplay() {
 
 function updateRow(contactId) {
     let dataStorageArray = getDataFromLocalStorage();
-    console.log(updateForm);
 
     dataStorageArray.forEach(item => {
         if (item.id === contactId) {
@@ -279,7 +259,6 @@ function updateRow(contactId) {
             document.getElementById('upGroup').value = item.group;
         }
     });
-    console.log(updateForm);
 }
 
 let updateForm = document.getElementById('updateContact');
@@ -291,12 +270,10 @@ updateForm.addEventListener("submit", function(e) {
     console.log(dataStorageArray);
     updateDisplay();
     updateForm.reset();
-    console.log(updateForm);
 });
 
 
 function updateContactFn(updateForm) {
-    console.log(updateForm);
     var contactId = updateForm.updateId.value;
     updateContact(contactId, updateForm);
     console.log(dataStorageArray);
@@ -314,7 +291,6 @@ function updateContact(contactId, updateContactForm) {
     // let upWebsite = document.getElementById('upWebsite');
     // let upGroup = document.getElementById('upGroup');
     let dataStorageArray = getDataFromLocalStorage();
-    console.log(updateContactForm);
     dataStorageArray.forEach(item => {
         if (item.id === Number(contactId)) {
             item.userName = updateContactForm.upUserName.value;
@@ -326,7 +302,6 @@ function updateContact(contactId, updateContactForm) {
             item.group = updateContactForm.upGroup.value;
         }
     });
-    console.log(dataStorageArray);
     setDataStorage(dataStorageArray);
 }
 
@@ -340,7 +315,6 @@ function deleteRow(id) {
                 return item.id;
             }
         })
-        console.log('cat');
         const delindex = data.indexOf(id);
         dataStorageArray.splice(delindex, 1);
         setDataStorage(dataStorageArray);
