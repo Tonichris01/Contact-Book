@@ -94,9 +94,18 @@
     }
     
     #viewContactPage {
+        display: none;
         overflow: auto;
         margin: 2px;
         padding: 10px;
+    }
+    
+    #addContactPage {
+        display: none;
+    }
+    
+    #updateContactPage {
+        display: none;
     }
     
     .formProperties {
